@@ -7,7 +7,7 @@ Number converter to words (1 ... 999 999 999)
 
 ## Download
 ```sh
-  $ bower install nks-file-manager
+  $ bower install nks-number-to-words
   $ git clone https://github.com/konstantin-nizhinskiy/NumberToWords;
 ```
 
