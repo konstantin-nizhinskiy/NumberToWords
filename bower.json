@@ -1,0 +1,23 @@
+{
+  "name": "nks-number-to-words",
+  "version": "0.9.1",
+  "homepage": "https://github.com/konstantin-nizhinskiy/NumberToWords",
+  "authors": [
+    "Konstantin Nizhinskiy <konstantin.nizhinskiy@gmail.com>"
+  ],
+  "description": "Number converter to words",
+  "keywords": [
+    "number",
+    "nks-number-to-words",
+    "words",
+    "converter"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
