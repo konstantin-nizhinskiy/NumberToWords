@@ -1,7 +1,7 @@
 
 (function(root,factory){
     if(typeof define ==='function' && define.amd){
-        define('numberToWords',[],function(){
+        define([],function(){
             return root.numberToWords=factory()
         })
     }else{

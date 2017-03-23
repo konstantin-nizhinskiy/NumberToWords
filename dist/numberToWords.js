@@ -1,14 +1,14 @@
 /*
-name: nks-file-manager
-version: 0.9.1
+name: nks-number-to-words
+version: 0.9.2
 author: Konstantin Nizhinskiy <konstantin.nizhinskiy@gmail.com>
-date: 2016-01-15 19:01:20 
+date: 2017-03-23 16:03:19 
 
 */
 
 (function(root,factory){
     if(typeof define ==='function' && define.amd){
-        define('numberToWords',[],function(){
+        define([],function(){
             return root.numberToWords=factory()
         })
     }else{
