@@ -5,7 +5,7 @@
             return root.numberToWords=factory()
         })
     }else{
-        root.numberToWords=factory();
+        return root.numberToWords=factory();
     }
 }(this,function(){
     var NumberToWords=function(){

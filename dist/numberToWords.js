@@ -2,7 +2,7 @@
 name: nks-number-to-words
 version: 0.9.2
 author: Konstantin Nizhinskiy <konstantin.nizhinskiy@gmail.com>
-date: 2017-03-23 16:03:19 
+date: 2017-06-07 11:06:01 
 
 */
 
@@ -12,7 +12,7 @@ date: 2017-03-23 16:03:19
             return root.numberToWords=factory()
         })
     }else{
-        root.numberToWords=factory();
+        return root.numberToWords=factory();
     }
 }(this,function(){
     var NumberToWords=function(){
@@ -110,7 +110,7 @@ NumberToWords.prototype.getHundred=function(num,intStr){
  */
 NumberToWords.prototype.getMillion=function(num,intStr){
     var str='';
-    if(num!==undefined){
+    if(num!==undefined && num!=='000'){
         if(num.length==3){
             str+=intStr.arrayOfString1[num.substring(0,1)]; //100..900
             if(num.substring(1,2)==0){
@@ -214,7 +214,7 @@ NumberToWords.prototype.getMillion=function(num,intStr){
  */
 NumberToWords.prototype.getThousand=function(num,intStr){
     var str='';
-    if(num!==undefined){
+    if(num!==undefined && num!=='000'){
         if(num.length==3){
             str+=intStr.arrayOfString1[num.substring(0,1)]; //100..900
             if(num.substring(1,2)==0){

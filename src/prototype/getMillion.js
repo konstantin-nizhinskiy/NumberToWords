@@ -7,7 +7,7 @@
  */
 NumberToWords.prototype.getMillion=function(num,intStr){
     var str='';
-    if(num!==undefined){
+    if(num!==undefined && num!=='000'){
         if(num.length==3){
             str+=intStr.arrayOfString1[num.substring(0,1)]; //100..900
             if(num.substring(1,2)==0){
