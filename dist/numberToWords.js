@@ -2,7 +2,7 @@
 name: nks-number-to-words
 version: 0.9.2
 author: Konstantin Nizhinskiy <konstantin.nizhinskiy@gmail.com>
-date: 2017-06-07 11:06:01 
+date: 2018-04-26 17:04:31 
 
 */
 
@@ -45,6 +45,120 @@ NumberToWords.prototype.get=function(number,local){
     return number;
 
 };
+/**
+ * Date{DD.MM.YYYY} converter to words
+ *
+ * @param date {string} - number
+ * @param local {string} locale [ru,ua]
+ * @param type {string} type days [1,2]
+ * @return {*}
+ */
+NumberToWords.prototype.getDate=function(date,local,type){
+    if(this[local]){
+        var str='',
+            i,
+            mass=[],
+            dates=date.split(/[\.-]/);
+        str+=_getDateDay(dates[0],this[local],type);
+        str+=_getDateMonth(dates[1],this[local]);
+        for(i=dates[2].length;i>0;i=i-3){
+            mass.push(dates[2].substring(i-3,i));
+        }
+        str+=this.getThousand(mass[1],this[local]);
+        str+=_getDateHundred(mass[0],this[local]);
+        str+=this[local].years[1];
+
+
+        return str;
+    }
+
+    return number;
+
+};
+/**
+ * Thousand days to words
+ *
+ * @param num {string} - number
+ * @param intStr {object} - translations locale
+ * @return {string}
+ */
+var _getDateDay=function(num,intStr,type){
+    return intStr.days[type][parseInt(num)-1]||num;
+};
+
+/**
+ * Hundred converter date years to words
+ *
+ * @param num {string} - number
+ * @param intStr {object} - translations locale
+ * @return {string}
+ */
+var _getDateHundred=function(num,intStr){
+    var str='';
+    if(num!==undefined){
+        if(num.length==3){
+            str+=intStr.arrayOfString1[num.substring(0,1)]; //100..900
+            if(num.substring(1,2)==0){
+
+                str+=intStr.arrayOfString2_1[num.substring(2,3)]; //1..9
+            }
+            if(num.substring(1,2)==1){
+
+                str+=intStr.arrayOfString3_1[num.substring(2,3)]; //11..20
+            }
+            if(num.substring(1,2)>1 && num.substring(2,3)==0){
+                str+=intStr.arrayOfString4_1[num.substring(1,2)]; //20..90
+            }
+            if(num.substring(1,2)>1 && num.substring(2,3)>0){
+
+                str+=intStr.arrayOfString4[num.substring(1,2)]; //20..90
+                str+=intStr.arrayOfString2_1[num.substring(2,3)]; //1..9
+            }
+
+
+
+        }
+        if(num.length==2){
+            if(num.substring(0,1)==0){
+
+                str+=intStr.arrayOfString2_1[num.substring(1,2)]; //1..9
+            }
+            if(num.substring(0,1)==1){
+
+                str+=intStr.arrayOfString3_1[num.substring(1,2)]; //11..20
+            }
+            if(num.substring(0,1)>1 && num.substring(1,2)==0){
+                str+=intStr.arrayOfString4_1[num.substring(1,2)]; //20..90
+            }
+            if(num.substring(0,1)>1 && num.substring(1,2)>0){
+
+                str+=intStr.arrayOfString4[num.substring(0,1)]; //20..90
+                str+=intStr.arrayOfString2_1[num.substring(1,2)]; //1..9
+            }
+
+
+
+        }
+        if(num.length==1){
+            str+=intStr.arrayOfString2_1[num]; //1..9
+
+
+        }
+
+    }
+    return str;
+};
+/**
+ * Convert month to words
+ *
+ * @param num {string} - number
+ * @param intStr {object} - translations locale
+ * @return {string}
+ */
+var _getDateMonth=function(num,intStr){
+    return intStr.month[parseInt(num)-1]||num;
+};
+
 /**
  * Hundred converter to words
  *

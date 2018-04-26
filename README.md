@@ -18,6 +18,14 @@ Number converter to words (1 ... 999 999 999)
 <script type="text/javascript">
     console.log(numberToWords.get(123,'ua')); //сто двадцять три
     console.log(numberToWords.get(1,'ua')); //один
+    
+    console.log('UA: ',bundle.numberToWords.getDate("22.01.2012",'ua',1));//двадцять другого січня двi тисячі дванадцятого року 
+    console.log('UA: ',bundle.numberToWords.getDate("22.01.2020",'ua',1));//двадцять другого січня двi тисячі двадцятого року 
+    console.log('UA: ',bundle.numberToWords.getDate("22.01.2021",'ua',1));//двадцять другого січня двi тисячі двадцять першого року 
+    
+    console.log('UA: ',bundle.numberToWords.getDate("22.01.2012",'ua',0));//двадцять друге січня двi тисячі дванадцятого року 
+    console.log('UA: ',bundle.numberToWords.getDate("22.01.2020",'ua',0));//двадцять друге січня двi тисячі двадцятого року 
+    console.log('UA: ',bundle.numberToWords.getDate("22.01.2021",'ua',0));//двадцять друге січня двi тисячі двадцять першого року 
 </script>
 ```
 
