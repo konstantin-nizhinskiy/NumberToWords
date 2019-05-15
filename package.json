@@ -1,7 +1,30 @@
 {
-  "name": "nks-file-manager",
-  "version": "0.9.2",
+  "name": "nks-number-to-words",
+  "version": "1.1.0",
   "author": "Konstantin Nizhinskiy",
+  "description":"Number converter to words",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konstantin-nizhinskiy/NumberToWords.git"
+  },
+  "bugs": {
+    "url": "https://github.com/konstantin-nizhinskiy/NumberToWords/issues"
+  },
+  "files": [
+    "dist",
+    "History.md",
+    "LICENSE-MIT"
+  ],
+  "keywords": [
+    "date",
+    "sum",
+    "number",
+    "converter",
+    "words",
+    "number-to-words",
+    "NumberToWords"
+  ],
   "devDependencies": {
     "grunt": "~0.4.4",
     "grunt-banner": "^0.5.0",
