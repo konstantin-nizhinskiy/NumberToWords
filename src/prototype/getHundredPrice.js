@@ -126,8 +126,12 @@ NumberToWords.prototype.getHundredPrice=function(num,intStr,currency){
 
         }
         if(num.length==1){
-            str+=arrayOfString2_2[num]; //1..9
-            
+            if(num==0){
+                str+=intStr.arrayOfString8[num]; //1..9
+            }else{
+                str+=arrayOfString2_2[num]; //1..9
+            }
+
             if(intStr.currency[currency]) {
                 switch (num) {
                     case '1':

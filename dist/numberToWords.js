@@ -1,8 +1,8 @@
 /*
 name: nks-number-to-words
-version: 0.9.2
+version: 1.02.0
 author: Konstantin Nizhinskiy <konstantin.nizhinskiy@gmail.com>
-date: 2019-11-20 10:11:42 
+date: 2019-11-20 13:11:35 
 
 */
 
@@ -635,8 +635,12 @@ NumberToWords.prototype.getHundredPrice=function(num,intStr,currency){
 
         }
         if(num.length==1){
-            str+=arrayOfString2_2[num]; //1..9
-            
+            if(num==0){
+                str+=intStr.arrayOfString8[num]; //1..9
+            }else{
+                str+=arrayOfString2_2[num]; //1..9
+            }
+
             if(intStr.currency[currency]) {
                 switch (num) {
                     case '1':

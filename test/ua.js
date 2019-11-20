@@ -26,6 +26,7 @@ console.log('UA getPrice 102: ',bundle.numberToWords.getPrice(102,'ua',"UAH"));
 console.log('UA getPrice 841: ',bundle.numberToWords.getPrice(841,'ua',"UAH"));
 console.log('UA getPrice 841: ',bundle.numberToWords.getPrice(101001,'ua',"UAH"));
 console.log('UA getPrice 841: ',bundle.numberToWords.getPrice(101001,'ua',"USD"));
+console.log('UA getPrice 841: ',bundle.numberToWords.getPrice(0.31,'ua',"USD"));
 
 
 console.log("numberToWords***************************")
