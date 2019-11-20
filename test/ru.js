@@ -9,3 +9,7 @@ var bundle = require('../dist/numberToWords');
 console.log('RU: ',bundle.numberToWords.getDate("22.01.2012",'ru',1));
 console.log('RU: ',bundle.numberToWords.getDate("22.01.2020",'ru',1));
 console.log('RU: ',bundle.numberToWords.getDate("22.01.2021",'ru',1));
+console.log('RU getPrice : ',bundle.numberToWords.getPrice(102,'ru',"UAH"));
+console.log('RU getPrice : ',bundle.numberToWords.getPrice(841,'ru',"UAH"));
+console.log('RU getPrice : ',bundle.numberToWords.getPrice(101001,'ru',"UAH"));
+console.log('RU getPrice : ',bundle.numberToWords.getPrice(101001,'ru',"USD"));

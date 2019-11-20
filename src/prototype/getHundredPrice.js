@@ -6,13 +6,19 @@
  * @return {string}
  */
 NumberToWords.prototype.getHundredPrice=function(num,intStr,currency){
-    var str='';
+    var str='',
+        arrayOfString2_2;
+    if(getRodeCurr(currency)=="W"){
+        arrayOfString2_2=intStr.arrayOfString2_2
+    }else{
+        arrayOfString2_2=intStr.arrayOfString2
+    }
     if(num!==undefined){
         if(num.length==3){
             str+=intStr.arrayOfString1[num.substring(0,1)]; //100..900
             if(num.substring(1,2)==0){
 
-                str+=intStr.arrayOfString2_2[num.substring(2,3)]; //1..9
+                str+=arrayOfString2_2[num.substring(2,3)]; //1..9
             }
             if(num.substring(1,2)==1){
 
@@ -21,7 +27,7 @@ NumberToWords.prototype.getHundredPrice=function(num,intStr,currency){
             if(num.substring(1,2)>1){
 
                 str+=intStr.arrayOfString4[num.substring(1,2)]; //20..90
-                str+=intStr.arrayOfString2_2[num.substring(2,3)]; //1..9
+                str+=arrayOfString2_2[num.substring(2,3)]; //1..9
             }
             if(intStr.currency[currency]) {
                 switch (num.substring(2, 3)) {
@@ -66,7 +72,7 @@ NumberToWords.prototype.getHundredPrice=function(num,intStr,currency){
         if(num.length==2){
             if(num.substring(0,1)==0){
 
-                str+=intStr.arrayOfString2_2[num.substring(1,2)]; //1..9
+                str+=arrayOfString2_2[num.substring(1,2)]; //1..9
             }
             if(num.substring(0,1)==1){
 
@@ -75,7 +81,7 @@ NumberToWords.prototype.getHundredPrice=function(num,intStr,currency){
             if(num.substring(0,1)>1){
 
                 str+=intStr.arrayOfString4[num.substring(0,1)]; //20..90
-                str+=intStr.arrayOfString2_2[num.substring(1,2)]; //1..9
+                str+=arrayOfString2_2[num.substring(1,2)]; //1..9
             }
             if(intStr.currency[currency]) {
                 switch (num.substring(1, 2)) {
@@ -120,7 +126,7 @@ NumberToWords.prototype.getHundredPrice=function(num,intStr,currency){
 
         }
         if(num.length==1){
-            str+=intStr.arrayOfString2_2[num]; //1..9
+            str+=arrayOfString2_2[num]; //1..9
             
             if(intStr.currency[currency]) {
                 switch (num) {

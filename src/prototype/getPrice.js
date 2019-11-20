@@ -16,8 +16,35 @@ NumberToWords.prototype.getPrice=function(number,local,currency,options){
             currency_number={
                 "840":"USD",
                 "980":"UAH",
-                "978":"EUR"
+                "978":"EUR",
+                "810":"RUR",
+                "643":"RUB",
+                "616":"PLZ",
+                "985":"PLN",
+                "826":"GBP",
+                "756":"CHF",
+                "203":"CZK",
+                "124":"CAD",
+                "752":"SEK",
+                "578":"NOK",
+                "392":"JPY",
+                "376":"ILS",
+                "933":"BYN",
+                "398":"KZT",
+                "036":"AUD",
+                "981":"GEL",
+                "860":"UZS",
+                "498":"MDL",
+                "348":"HUF",
+                "156":"CNY",
+                "554":"NZD",
+                "944":"AZN",
+                "356":"INR",
+                "417":"KGS",
+                "208":"DKK"
+
             };
+
         if(currency_number[currency.toString()]){
             currency=currency_number[currency.toString()];
         }

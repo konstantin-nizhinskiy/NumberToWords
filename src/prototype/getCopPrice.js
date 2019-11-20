@@ -7,9 +7,14 @@
   * @return {string}
  */
 NumberToWords.prototype.getCopPrice=function(num,intStr,currency){
-    var str='';
+    var str='',
+        arrayOfString2_2;
 
-
+    if(getRodeCurr(currency)=="W"){
+        arrayOfString2_2=intStr.arrayOfString2_2
+    }else{
+        arrayOfString2_2=intStr.arrayOfString2
+    }
     if(num!==undefined){
         if(num.length==1){
             num+="0"
@@ -65,7 +70,7 @@ NumberToWords.prototype.getCopPrice=function(num,intStr,currency){
                 if (num.substring(0, 1) > 1) {
 
                     str += intStr.arrayOfString4[num.substring(0, 1)]; //20..90
-                    str += intStr.arrayOfString2_2[num.substring(1, 2)]; //1..9
+                    str += arrayOfString2_2[num.substring(1, 2)]; //1..9
                 }
 
             if(intStr.currency[currency]) {
@@ -110,7 +115,7 @@ NumberToWords.prototype.getCopPrice=function(num,intStr,currency){
 
         }
         if(_num<10){
-            str+=intStr.arrayOfString2_2[_num]; //1..9
+            str+=arrayOfString2_2[_num]; //1..9
             
             if(intStr.currency2[currency]) {
                 switch (_num) {

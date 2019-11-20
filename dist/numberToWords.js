@@ -2,7 +2,7 @@
 name: nks-number-to-words
 version: 0.9.2
 author: Konstantin Nizhinskiy <konstantin.nizhinskiy@gmail.com>
-date: 2019-05-15 10:05:39 
+date: 2019-11-20 10:11:42 
 
 */
 
@@ -54,16 +54,21 @@ NumberToWords.prototype.get=function(number,local){
   * @return {string}
  */
 NumberToWords.prototype.getCopPrice=function(num,intStr,currency){
-    var str='';
+    var str='',
+        arrayOfString2_2;
 
-
+    if(getRodeCurr(currency)=="W"){
+        arrayOfString2_2=intStr.arrayOfString2_2
+    }else{
+        arrayOfString2_2=intStr.arrayOfString2
+    }
     if(num!==undefined){
         if(num.length==1){
             num+="0"
         }
         var _num=parseInt(num);
         if(_num>99){
-            str+=num+" "
+            str+=num+" ";
             if(intStr.currency2[currency]) {
                 switch (num.substring(2, 3)) {
                     case '1':
@@ -112,7 +117,7 @@ NumberToWords.prototype.getCopPrice=function(num,intStr,currency){
                 if (num.substring(0, 1) > 1) {
 
                     str += intStr.arrayOfString4[num.substring(0, 1)]; //20..90
-                    str += intStr.arrayOfString2_2[num.substring(1, 2)]; //1..9
+                    str += arrayOfString2_2[num.substring(1, 2)]; //1..9
                 }
 
             if(intStr.currency[currency]) {
@@ -157,7 +162,7 @@ NumberToWords.prototype.getCopPrice=function(num,intStr,currency){
 
         }
         if(_num<10){
-            str+=intStr.arrayOfString2_2[_num]; //1..9
+            str+=arrayOfString2_2[_num]; //1..9
             
             if(intStr.currency2[currency]) {
                 switch (_num) {
@@ -510,13 +515,19 @@ NumberToWords.prototype.getHundred=function(num,intStr){
  * @return {string}
  */
 NumberToWords.prototype.getHundredPrice=function(num,intStr,currency){
-    var str='';
+    var str='',
+        arrayOfString2_2;
+    if(getRodeCurr(currency)=="W"){
+        arrayOfString2_2=intStr.arrayOfString2_2
+    }else{
+        arrayOfString2_2=intStr.arrayOfString2
+    }
     if(num!==undefined){
         if(num.length==3){
             str+=intStr.arrayOfString1[num.substring(0,1)]; //100..900
             if(num.substring(1,2)==0){
 
-                str+=intStr.arrayOfString2_2[num.substring(2,3)]; //1..9
+                str+=arrayOfString2_2[num.substring(2,3)]; //1..9
             }
             if(num.substring(1,2)==1){
 
@@ -525,7 +536,7 @@ NumberToWords.prototype.getHundredPrice=function(num,intStr,currency){
             if(num.substring(1,2)>1){
 
                 str+=intStr.arrayOfString4[num.substring(1,2)]; //20..90
-                str+=intStr.arrayOfString2_2[num.substring(2,3)]; //1..9
+                str+=arrayOfString2_2[num.substring(2,3)]; //1..9
             }
             if(intStr.currency[currency]) {
                 switch (num.substring(2, 3)) {
@@ -570,7 +581,7 @@ NumberToWords.prototype.getHundredPrice=function(num,intStr,currency){
         if(num.length==2){
             if(num.substring(0,1)==0){
 
-                str+=intStr.arrayOfString2_2[num.substring(1,2)]; //1..9
+                str+=arrayOfString2_2[num.substring(1,2)]; //1..9
             }
             if(num.substring(0,1)==1){
 
@@ -579,7 +590,7 @@ NumberToWords.prototype.getHundredPrice=function(num,intStr,currency){
             if(num.substring(0,1)>1){
 
                 str+=intStr.arrayOfString4[num.substring(0,1)]; //20..90
-                str+=intStr.arrayOfString2_2[num.substring(1,2)]; //1..9
+                str+=arrayOfString2_2[num.substring(1,2)]; //1..9
             }
             if(intStr.currency[currency]) {
                 switch (num.substring(1, 2)) {
@@ -624,7 +635,7 @@ NumberToWords.prototype.getHundredPrice=function(num,intStr,currency){
 
         }
         if(num.length==1){
-            str+=intStr.arrayOfString2_2[num]; //1..9
+            str+=arrayOfString2_2[num]; //1..9
             
             if(intStr.currency[currency]) {
                 switch (num) {
@@ -760,7 +771,7 @@ NumberToWords.prototype.getMillion=function(num,intStr){
 /**
  * Number type price  converter to words
  *
- * @param number {int/string} - number
+ * @param number {int/string} - sum
  * @param local {string} locale [ru,ua]
  * @param currency {string} currency [USD,UAH,...]
  * @param options {object} property
@@ -775,8 +786,35 @@ NumberToWords.prototype.getPrice=function(number,local,currency,options){
             currency_number={
                 "840":"USD",
                 "980":"UAH",
-                "978":"EUR"
+                "978":"EUR",
+                "810":"RUR",
+                "643":"RUB",
+                "616":"PLZ",
+                "985":"PLN",
+                "826":"GBP",
+                "756":"CHF",
+                "203":"CZK",
+                "124":"CAD",
+                "752":"SEK",
+                "578":"NOK",
+                "392":"JPY",
+                "376":"ILS",
+                "933":"BYN",
+                "398":"KZT",
+                "036":"AUD",
+                "981":"GEL",
+                "860":"UZS",
+                "498":"MDL",
+                "348":"HUF",
+                "156":"CNY",
+                "554":"NZD",
+                "944":"AZN",
+                "356":"INR",
+                "417":"KGS",
+                "208":"DKK"
+
             };
+
         if(currency_number[currency.toString()]){
             currency=currency_number[currency.toString()];
         }
@@ -799,6 +837,44 @@ NumberToWords.prototype.getPrice=function(number,local,currency,options){
     }
 
     return number;
+
+};
+/*
+ * @param currency {string} currency [USD,UAH,...]
+ * @return {*}
+ */
+var getRodeCurr=function(currency){
+    var currency_rod={
+                "UAH": "W",
+                "USD": "M",
+                "EUR": "M",
+                "RUR": "M",
+                "RUB": "M",
+                "PLZ": "M",
+                "PLN": "M",
+                "GBP": "M",
+                "CHF": "M",
+                "CZK": "W",
+                "CAD": "M",
+                "SEK": "W",
+                "NOK": "W",
+                "JPY": "W",
+                "ILS": "M",
+                "BYN": "M",
+                "KZT": "M",
+                "DKK": "W",
+                "AUD": "M",
+                "GEL": "M",
+                "UZS": "M",
+                "MDL": "M",
+                "HUF": "M",
+                "CNY": "M",
+                "NZD": "M",
+                "AZN": "M",
+                "INR": "W",
+                "KGS": "M"
+            };
+    return currency_rod[currency]||"M";
 
 };
 /**

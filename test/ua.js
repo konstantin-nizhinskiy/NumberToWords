@@ -20,8 +20,15 @@ console.log('UA getPrice 101.212: ',bundle.numberToWords.getPrice(101.212,'ua',"
 console.log('UA getPrice 101.24: ',bundle.numberToWords.getPrice(101.24,'ua',"840"));
 console.log('UA getPrice 101.24: ',bundle.numberToWords.getPrice(101.24,'ua',"USD"));
 
-console.log('UA getPrice 101.01: ',bundle.numberToWords.getPrice(101.01,'ua',"UAH",{"fractional_is_number":true}));
+console.log('UA getPrice 101.01: ',bundle.numberToWords.getPrice(101.01,'ua',"UAH",{"fractional_is_number":true})); //сто одна гривня 01 копійка
+console.log('UA getPrice 101.01: ',bundle.numberToWords.getPrice(101.01,'ua',"UAH")); //сто одна гривня одна копійка
 console.log('UA getPrice 102: ',bundle.numberToWords.getPrice(102,'ua',"UAH"));
+console.log('UA getPrice 841: ',bundle.numberToWords.getPrice(841,'ua',"UAH"));
+console.log('UA getPrice 841: ',bundle.numberToWords.getPrice(101001,'ua',"UAH"));
+console.log('UA getPrice 841: ',bundle.numberToWords.getPrice(101001,'ua',"USD"));
+
+
+console.log("numberToWords***************************")
 console.log('UA: ',bundle.numberToWords.get(2000000,'ua'));
 
 console.log('UA: ',bundle.numberToWords.getDate("22.01.2012",'ua',1));
