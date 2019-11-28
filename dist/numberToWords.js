@@ -1,8 +1,8 @@
 /*
 name: nks-number-to-words
-version: 1.02.01
+version: 1.02.02
 author: Konstantin Nizhinskiy <konstantin.nizhinskiy@gmail.com>
-date: 2019-11-20 13:11:16 
+date: 2019-11-28 09:11:20 
 
 */
 
@@ -947,18 +947,53 @@ NumberToWords.prototype.getThousand=function(num,intStr){
             if(num.substring(0,1)==0){
 
                 str+=intStr.arrayOfString6[num.substring(1,2)]; //1..9
+                switch (num.substring(1,2)) {
+                    case '1':
+                        str+=intStr.arrayOfString5[0];
+                        break;
+                    case '2':
+                        str+=intStr.arrayOfString5[1];
+                        break;
+                    case '3':
+                        str+=intStr.arrayOfString5[1];
+                        break;
+                    case '4':
+                        str+=intStr.arrayOfString5[1];
+                        break;
+                    default:
+                        str+=intStr.arrayOfString5[2];
+                        break;
+                }
             }
             if(num.substring(0,1)==1){
 
-                str+=intStr.arrayOfString3[num.substring(1,2)]; //11..20
+                str+=intStr.arrayOfString3[num.substring(1,2)]; //11..19
+                str+=intStr.arrayOfString5[2];
             }
             if(num.substring(0,1)>1){
 
                 str+=intStr.arrayOfString4[num.substring(0,1)]; //20..90
                 str+=intStr.arrayOfString6[num.substring(1,2)]; //1..9
+                switch (num.substring(1,2)) {
+                    case '1':
+                        str+=intStr.arrayOfString5[0];
+                        break;
+                    case '2':
+                        str+=intStr.arrayOfString5[1];
+                        break;
+                    case '3':
+                        str+=intStr.arrayOfString5[1];
+                        break;
+                    case '4':
+                        str+=intStr.arrayOfString5[1];
+                        break;
+                    default:
+                        str+=intStr.arrayOfString5[2];
+                        break;
+                }
             }
+//arrayOfString5: ["тисяча ", "тисячі ", "тисяч"],
 
-            str+=intStr.arrayOfString5[2];
 
         }
         if(num.length==1){

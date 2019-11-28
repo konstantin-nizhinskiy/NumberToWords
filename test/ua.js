@@ -28,6 +28,8 @@ console.log('UA getPrice 841: ',bundle.numberToWords.getPrice(101001,'ua',"UAH")
 console.log('UA getPrice 841: ',bundle.numberToWords.getPrice(101001,'ua',"USD"));
 console.log('UA getPrice 841: ',bundle.numberToWords.getPrice(0.31,'ua',"USD"));
 
+console.log('UA getPrice 22 800,0: ',bundle.numberToWords.getPrice(22800.0,'ua',"UAH",{"fractional_is_number":true})); //сто одна гривня 01 копійка
+
 
 console.log("numberToWords***************************")
 console.log('UA: ',bundle.numberToWords.get(2000000,'ua'));
