@@ -1,6 +1,6 @@
 {
   "name": "nks-number-to-words",
-  "version": "1.02.02",
+  "version": "1.02.03",
   "author": "Konstantin Nizhinskiy",
   "description":"Number converter to words",
   "license": "MIT",

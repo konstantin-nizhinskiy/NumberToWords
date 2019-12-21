@@ -58,6 +58,31 @@ Convert sum with currency to words (support: 1 ... 999 999 999.99)
 | USD | 840 | 
 | UAH | 980 | 
 | EUR | 978 | 
+| RUR | 810 | 
+| RUB | 643 | 
+| PLZ | 616 | 
+| PLN | 985 | 
+| GBP | 826 | 
+| CHF | 756 | 
+| CZK | 203 | 
+| CAD | 124 | 
+| SEK | 752 | 
+| NOK | 578 | 
+| JPY | 392 | 
+| ILS | 376 | 
+| BYN | 933 | 
+| KZT | 398 | 
+| AUD | 036 | 
+| GEL | 981 | 
+| UZS | 860 | 
+| MDL | 498 | 
+| HUF | 348 | 
+| CNY | 156 | 
+| NZD | 554 | 
+| AZN | 944 | 
+| INR | 356 | 
+| KGS | 417 | 
+| DKK | 208 | 
 
 ## getDate
 

@@ -1,8 +1,8 @@
 /*
 name: nks-number-to-words
-version: 1.02.02
+version: 1.02.03
 author: Konstantin Nizhinskiy <konstantin.nizhinskiy@gmail.com>
-date: 2019-11-28 09:11:20 
+date: 2019-12-21 13:12:12 
 
 */
 
