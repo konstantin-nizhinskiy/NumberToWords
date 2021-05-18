@@ -2,7 +2,7 @@
 name: nks-number-to-words
 version: 1.02.03
 author: Konstantin Nizhinskiy <konstantin.nizhinskiy@gmail.com>
-date: 2019-12-21 13:12:12 
+date: 2021-05-18 18:05:20 
 
 */
 
