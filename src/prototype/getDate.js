@@ -25,6 +25,6 @@ NumberToWords.prototype.getDate=function(date,local,type){
         return str;
     }
 
-    return number;
+    return date;
 
 };

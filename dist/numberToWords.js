@@ -2,7 +2,7 @@
 name: nks-number-to-words
 version: 1.03.00
 author: Konstantin Nizhinskiy <konstantin.nizhinskiy@gmail.com>
-date: 2021-07-23 14:07:59 
+date: 2021-07-23 16:07:34 
 
 */
 
@@ -11,7 +11,10 @@ date: 2021-07-23 14:07:59
         define([],function(){
             return root.numberToWords=factory()
         })
-    }else{
+    } else if(typeof module === "object" && module.exports) {
+        // the CommonJS loader.
+        module.exports = (root.numberToWords = factory());
+    } else{
         return root.numberToWords=factory();
     }
 }(this,function(){
@@ -385,7 +388,7 @@ NumberToWords.prototype.getDate=function(date,local,type){
         return str;
     }
 
-    return number;
+    return date;
 
 };
 /**

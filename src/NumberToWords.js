@@ -4,7 +4,10 @@
         define([],function(){
             return root.numberToWords=factory()
         })
-    }else{
+    } else if(typeof module === "object" && module.exports) {
+        // the CommonJS loader.
+        module.exports = (root.numberToWords = factory());
+    } else{
         return root.numberToWords=factory();
     }
 }(this,function(){

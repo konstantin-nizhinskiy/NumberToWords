@@ -1,13 +1,15 @@
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         define(['numberToWords'], function (numberToWords) {
-            numberToWords.setLocal('ua', factory())
+            factory(numberToWords)
         })
+    } else if(typeof module === "object" && module.exports) {
+        factory(require('../numberToWords.min'))
     } else {
-        numberToWords.setLocal('ua', factory())
+     factory(numberToWords)
     }
-}(this, function () {
-    return {
+}(this, function (numberToWords) {
+    numberToWords.setLocal('ua', {
         arrayOfString1: ["", "сто ", "двiстi ", "триста ", "чотириста ", "п'ятьсот ", "шiстсот ", "сiмсот ", "вiсiмсот ", "дев'ятсот "],
         arrayOfString2: ["", "один ", "два ", "три ", "чотири ", "п'ять ", "шiсть ", "сiм ", "вiсiм ", "дев'ять "],
         arrayOfString2_1: ["", "першого ", "другого ", "третього ", "четвертого ", "п'ятого ", "шостого ", "сьомого ", "восьмого ", "дев'ятого "],
@@ -173,5 +175,5 @@
             "листопада ",
             "грудня "
         ]
-    }
+    })
 }));
