@@ -1,8 +1,8 @@
 /*
 name: nks-number-to-words
-version: 1.02.03
+version: 1.03.00
 author: Konstantin Nizhinskiy <konstantin.nizhinskiy@gmail.com>
-date: 2021-05-18 18:05:20 
+date: 2021-07-23 14:07:59 
 
 */
 
@@ -29,17 +29,38 @@ date: 2021-05-18 18:05:20
 NumberToWords.prototype.get=function(number,local){
     if(this[local]){
         var mass=[],
+            mass0=[],
             str='',
             i;
         number=number.toString();
-        for(i=number.length;i>0;i=i-3){
-            mass.push(number.substring(i-3,i));
+        var numbers=number.split(/[.,]/);
+
+        for(i=numbers[0].length; i>0; i -= 3){
+            mass.push(numbers[0].substring(i-3,i));
         }
         str+=this.getMillion(mass[2],this[local]);
         str+=' '+this.getThousand(mass[1],this[local]);
         str+=' '+this.getHundred(mass[0],this[local]);
 
-        return str;
+        if(numbers[1]){
+            if(numbers[1].length>7){
+                return number
+            }
+            str+=this[local].arrayOfString8[1];
+            for(i=numbers[1].length; i>0; i -= 3){
+                mass0.push(numbers[1].substring(i-3,i));
+            }
+            if(["0","00","000"].indexOf(mass0[2])<0) {
+                str += " " + this.getMillion(mass0[2], this[local]);
+            }
+
+            if(["0","00","000"].indexOf(mass0[1])<0) {
+                str += " " + this.getThousand(mass0[1], this[local]);
+            }
+            str+=" "+this.getHundredZero(mass0[0],this[local],this[local]["arrayOfString0"][numbers[1].length]);
+
+        }
+        return str.replace(/ +/g," ").trim();
     }
 
     return number;
@@ -499,7 +520,12 @@ NumberToWords.prototype.getHundred=function(num,intStr){
 
         }
         if(num.length==1){
-            str+=intStr.arrayOfString2[num]; //1..9
+            if(num=="0"){
+                str+=intStr.arrayOfString8[0]; //0
+            }else{
+                str+=intStr.arrayOfString2[num]; //1..9
+            }
+
 
 
         }
@@ -636,7 +662,7 @@ NumberToWords.prototype.getHundredPrice=function(num,intStr,currency){
         }
         if(num.length==1){
             if(num==0){
-                str+=intStr.arrayOfString8[num]; //1..9
+                str+=intStr.arrayOfString8[0]; //0
             }else{
                 str+=arrayOfString2_2[num]; //1..9
             }
@@ -663,6 +689,84 @@ NumberToWords.prototype.getHundredPrice=function(num,intStr,currency){
                 str+=" "+currency
             }
 
+        }
+
+    }
+    return str;
+};
+/**
+ * Hundred converter to words
+ *
+ * @param num {string} - number
+ * @param intStr {object} - translations locale
+ * @return {string}
+ */
+NumberToWords.prototype.getHundredZero=function(num,intStr,arrayOfString0){
+    var str='',name="";
+    if(num!==undefined){
+        if(num.length==3){
+            str+=intStr.arrayOfString1[num.substring(0,1)]; //100..900
+            if(num.substring(1,2)==0){
+
+                str+=intStr.arrayOfString2_2[num.substring(2,3)]; //1..9
+            }
+            if(num.substring(1,2)==1){
+
+                str+=intStr.arrayOfString3[num.substring(2,3)]; //11..20
+                name=arrayOfString0[1]
+            }
+            if(num.substring(1,2)>1){
+
+                str+=intStr.arrayOfString4[num.substring(1,2)]; //20..90
+                str+=intStr.arrayOfString2_2[num.substring(2,3)]; //1..9
+            }
+            if(!name){
+                if(num.substring(2,3)==="1"){
+                    name=arrayOfString0[0]
+                }else{
+                    name=arrayOfString0[1]
+                }
+            }
+
+            str+=name;
+
+        }
+        if(num.length==2){
+            if(num.substring(0,1)==0){
+
+                str+=intStr.arrayOfString2_2[num.substring(1,2)]; //1..9
+            }
+            if(num.substring(0,1)==1){
+
+                str+=intStr.arrayOfString3[num.substring(1,2)]; //11..20
+                name=arrayOfString0[1]
+            }
+            if(num.substring(0,1)>1){
+
+                str+=intStr.arrayOfString4[num.substring(0,1)]; //20..90
+                str+=intStr.arrayOfString2_2[num.substring(1,2)]; //1..9
+            }
+            if(!name){
+                if(num.substring(1,2)==="1"){
+                    name=arrayOfString0[0]
+                }else{
+                    name=arrayOfString0[1]
+                }
+            }
+
+            str+=name;
+
+
+
+        }
+        if(num.length==1){
+            str+=intStr.arrayOfString2_2[num]; //1..9
+            if(num==="1"){
+                name=arrayOfString0[0]
+            }else{
+                name=arrayOfString0[1]
+            }
+            str+=name;
         }
 
     }
@@ -837,7 +941,7 @@ NumberToWords.prototype.getPrice=function(number,local,currency,options){
             str+=this.getCopPrice(numbers[1],this[local],currency);
         }
 
-        return str;
+        return str.replace(/ +/g," ").trim();
     }
 
     return number;

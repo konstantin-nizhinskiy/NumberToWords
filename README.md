@@ -28,7 +28,8 @@ Now support (ua,ru)
 
 ## get
 
-Number converter to words (support: 1 ... 999 999 999)
+Number converter to words (support: 0 ... 999 999 999.9999999)
+
 
 ### Arguments
 

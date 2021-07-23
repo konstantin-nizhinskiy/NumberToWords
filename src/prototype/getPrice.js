@@ -63,7 +63,7 @@ NumberToWords.prototype.getPrice=function(number,local,currency,options){
             str+=this.getCopPrice(numbers[1],this[local],currency);
         }
 
-        return str;
+        return str.replace(/ +/g," ").trim();
     }
 
     return number;

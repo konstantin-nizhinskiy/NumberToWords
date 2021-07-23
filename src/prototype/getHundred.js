@@ -46,7 +46,12 @@ NumberToWords.prototype.getHundred=function(num,intStr){
 
         }
         if(num.length==1){
-            str+=intStr.arrayOfString2[num]; //1..9
+            if(num=="0"){
+                str+=intStr.arrayOfString8[0]; //0
+            }else{
+                str+=intStr.arrayOfString2[num]; //1..9
+            }
+
 
 
         }
