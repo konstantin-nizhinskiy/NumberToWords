@@ -15,5 +15,9 @@
 
     };
     // <%= prototype %>
-    return new NumberToWords();
+    var numberToWords=new NumberToWords()
+
+    // <%= translations %>
+
+    return numberToWords;
 }));

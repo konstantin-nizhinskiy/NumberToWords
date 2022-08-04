@@ -11,13 +11,16 @@ module.exports = {
         numberToWords: {
             files: {
                 'dist/translations/numberToWords.ru.js':[
-                    'src/translations/ru.js'
+                    'dist/translations/numberToWords.ru.js'
                 ],
                 'dist/translations/numberToWords.ua.js':[
-                    'src/translations/ua.js'
-                ],
+                    'dist/translations/numberToWords.ua.js'
+               ],
                 'dist/numberToWords.min.js':[
                     'dist/numberToWords.js'
+                ],
+                'dist/numberToWords.full.min.js':[
+                    'dist/numberToWords.full.js'
                 ]
 
 

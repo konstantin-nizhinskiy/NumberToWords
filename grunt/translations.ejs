@@ -1,0 +1,14 @@
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        define(['numberToWords'], function (numberToWords) {
+            factory(numberToWords)
+        })
+    } else if(typeof module === "object" && module.exports) {
+     factory(require('../numberToWords.min'))
+    } else {
+        factory(numberToWords)
+    }
+
+}(this, function (numberToWords) {
+    numberToWords.setLocal("<%= locale %>", <%= data_locale %>)
+}));

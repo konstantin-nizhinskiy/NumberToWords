@@ -21,7 +21,7 @@ console.log('UA getPrice 101.24: ',numberToWords.getPrice(101.24,'ua',"840"));
 console.log('UA getPrice 101.24: ',numberToWords.getPrice(101.24,'ua',"USD"));
 
 console.log('UA getPrice 101.01: ',numberToWords.getPrice(101.01,'ua',"UAH",{"fractional_is_number":true})); //сто одна гривня 01 копійка
-console.log('UA getPrice 69000.0: ',numberToWords.getPrice(69000.0,'ua',"UAH",{"fractional_is_number":true})); //сто одна гривня 01 копійка
+console.log('UA getPrice 69000.0: ',numberToWords.getPrice(69000.0,'ua',"USD",{"fractional_is_number":true})); //сто одна гривня 01 копійка
 console.log('UA getPrice 101.01: ',numberToWords.getPrice(101.01,'ua',"UAH")); //сто одна гривня одна копійка
 console.log('UA getPrice 102: ',numberToWords.getPrice(102,'ua',"UAH"));
 console.log('UA getPrice 841: ',numberToWords.getPrice(841,'ua',"UAH"));
