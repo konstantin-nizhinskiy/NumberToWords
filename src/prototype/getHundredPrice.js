@@ -127,7 +127,7 @@ NumberToWords.prototype.getHundredPrice=function(num,intStr,currency){
         }
         if(num.length==1){
             if(num==0){
-                str+=intStr.arrayOfString8[0]; //0
+                str+=intStr.arrayOfString8[2]; //0
             }else{
                 str+=arrayOfString2_2[num]; //1..9
             }

@@ -45,3 +45,6 @@ console.log('UA: ',numberToWords.getDate("22.01.2021",'ua',0));
 
 console.log('UA: ',numberToWords.get(8.5,'ua'));
 console.log('UA: ',numberToWords.get(8,'ua'));
+
+console.log('UA getPrice 0.01: ',numberToWords.getPrice(0.01,'ua',"UAH",{"fractional_is_number":true})); // нуль гривень 01 копійка
+console.log('UA getPrice 0.01: ',numberToWords.getPrice(0.01,'ua',"UAH")); //нуль гривень одна копійка
