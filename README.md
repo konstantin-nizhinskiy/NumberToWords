@@ -40,7 +40,7 @@ Number converter to words (support: 0 ... 999 999 999.9999999)
 
 ## getPrice
 
-Convert sum with currency to words (support: 1 ... 999 999 999.99)
+Convert sum with currency to words (support: 1 ... 999 999 999 999 999.99)
 
 ### Arguments
 
