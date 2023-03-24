@@ -54,7 +54,9 @@ NumberToWords.prototype.getPrice=function(number,local,currency,options){
         for(i=numbers[0].length;i>0;i=i-3){
             mass.push(numbers[0].substring(i-3,i));
         }
-        str+=this.getMillion(mass[2],this[local]);
+        str+=this.getTrillion(mass[4],this[local]);
+        str+=' '+this.getMilliard(mass[3],this[local]);
+        str+=' '+this.getMillion(mass[2],this[local]);
         str+=' '+this.getThousand(mass[1],this[local]);
         str+=' '+this.getHundredPrice(mass[0],this[local],currency);
         if(options.fractional_is_number){

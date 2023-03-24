@@ -48,3 +48,10 @@ console.log('UA: ',numberToWords.get(8,'ua'));
 
 console.log('UA getPrice 0.01: ',numberToWords.getPrice(0.01,'ua',"UAH",{"fractional_is_number":true})); // нуль гривень 01 копійка
 console.log('UA getPrice 0.01: ',numberToWords.getPrice(0.01,'ua',"UAH")); //нуль гривень одна копійка
+console.log('UA getPrice 999000000.01: ',numberToWords.getPrice(999000000.01,'ua',"UAH")); //дев'ятсот дев'яносто дев'ять мільйонів гривень одна копійка
+console.log('UA getPrice 1 999 000 000.01: ',numberToWords.getPrice(1999000000.01,'ua',"UAH")); //дев'ятсот дев'яносто дев'ять мільйонів гривень одна копійка
+console.log('UA getPrice 12 999 000 000.01: ',numberToWords.getPrice(12999000000.01,'ua',"UAH")); //дванадцять мільярдів дев'ятсот дев'яносто дев'ять мільйонів гривень одна копійка
+console.log('UA getPrice 1 912 999 000 000.01: ',numberToWords.getPrice(1912999000000.01,'ua',"UAH")); //один трильйон дев'ятсот дванадцять мільярдів дев'ятсот дев'яносто дев'ять мільйонів гривень одна копійка
+console.log('UA getPrice 999 912 999 000 000.01: ',numberToWords.getPrice(999912999000000.01,'ua',"UAH")); // дев'ятсот дев'яносто дев'ять трильйонів дев'ятсот дванадцять мільярдів дев'ятсот дев'яносто дев'ять мільйонів гривень ноль копійок
+
+

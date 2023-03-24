@@ -1,8 +1,8 @@
 /*
 name: nks-number-to-words
-version: 1.05.00
+version: 1.07.00
 author: Konstantin Nizhinskiy <konstantin.nizhinskiy@gmail.com>
-date: 2023-03-02 15:03:58 
+date: 2023-03-24 17:03:18 
 
 */
 
@@ -776,6 +776,110 @@ NumberToWords.prototype.getHundredZero=function(num,intStr,arrayOfString0){
     return str;
 };
 /**
+ * Milliard converter to words
+ *
+ * @param num {string} - number
+ * @param intStr {object} - translations locale
+ * @return {string}
+ */
+NumberToWords.prototype.getMilliard=function(num,intStr){
+    var str='';
+    if(num!==undefined && num!=='000'){
+        if(num.length==3){
+            str+=intStr.arrayOfString1[num.substring(0,1)]; //100..900
+            if(num.substring(1,2)==0){
+
+                str+=intStr.arrayOfString2[num.substring(2,3)]; //1..9
+            }
+            if(num.substring(1,2)==1){
+
+                str+=intStr.arrayOfString3[num.substring(2,3)]; //11..20
+            }
+            if(num.substring(1,2)>1){
+
+                str+=intStr.arrayOfString4[num.substring(1,2)]; //20..90
+                str+=intStr.arrayOfString2[num.substring(2,3)]; //1..9
+            }
+
+            switch (num.substring(2,3)) {
+                case '1':
+                    if(num.substring(1,2)==1){
+                        str+=intStr.arrayOfString9[2];
+                    }else{
+                        str+=intStr.arrayOfString9[0];
+                    }
+                    break;
+                case '2':
+                    if(num.substring(1,2)==1){
+                        str+=intStr.arrayOfString9[2];
+                    }else{
+                        str+=intStr.arrayOfString9[1];
+                    }
+                    break;
+                case '3':
+                    if(num.substring(1,2)==1){
+                        str+=intStr.arrayOfString9[2];
+                    }else{
+                        str+=intStr.arrayOfString9[1];
+                    }
+                    break;
+                case '4':
+                    if(num.substring(1,2)==1){
+                        str+=intStr.arrayOfString9[2];
+                    }else{
+                        str+=intStr.arrayOfString9[1];
+                    }
+                    break;
+                default:
+                    str+=intStr.arrayOfString9[2];
+                    break;
+            }
+
+        }
+        if(num.length==2){
+            if(num.substring(0,1)==0){
+
+                str+=intStr.arrayOfString2[num.substring(1,2)]; //1..9
+            }
+            if(num.substring(0,1)==1){
+
+                str+=intStr.arrayOfString3[num.substring(1,2)]; //11..20
+            }
+            if(num.substring(0,1)>1){
+
+                str+=intStr.arrayOfString4[num.substring(0,1)]; //20..90
+                str+=intStr.arrayOfString2[num.substring(1,2)]; //1..9
+            }
+
+            str+=intStr.arrayOfString9[2];
+
+        }
+        if(num.length==1){
+            str+=intStr.arrayOfString2[num]; //1..9
+            switch (num) {
+                case '1':
+                    str+=intStr.arrayOfString9[0];
+                    break;
+                case '2':
+                    str+=intStr.arrayOfString9[1];
+                    break;
+                case '3':
+                    str+=intStr.arrayOfString9[1];
+                    break;
+                case '4':
+                    str+=intStr.arrayOfString9[1];
+                    break;
+                default:
+                    str+=intStr.arrayOfString9[2];
+                    break;
+            }
+
+        }
+
+    }
+    return str;
+};
+/**
  * Million converter to words
  *
  * @param num {string} - number
@@ -935,7 +1039,9 @@ NumberToWords.prototype.getPrice=function(number,local,currency,options){
         for(i=numbers[0].length;i>0;i=i-3){
             mass.push(numbers[0].substring(i-3,i));
         }
-        str+=this.getMillion(mass[2],this[local]);
+        str+=this.getTrillion(mass[4],this[local]);
+        str+=' '+this.getMilliard(mass[3],this[local]);
+        str+=' '+this.getMillion(mass[2],this[local]);
         str+=' '+this.getThousand(mass[1],this[local]);
         str+=' '+this.getHundredPrice(mass[0],this[local],currency);
         if(options.fractional_is_number){
@@ -1129,6 +1235,110 @@ NumberToWords.prototype.getThousand=function(num,intStr){
     return str;
 };
 /**
+ * Trillion converter to words
+ *
+ * @param num {string} - number
+ * @param intStr {object} - translations locale
+ * @return {string}
+ */
+NumberToWords.prototype.getTrillion=function(num,intStr){
+    var str='';
+    if(num!==undefined && num!=='000'){
+        if(num.length==3){
+            str+=intStr.arrayOfString1[num.substring(0,1)]; //100..900
+            if(num.substring(1,2)==0){
+
+                str+=intStr.arrayOfString2[num.substring(2,3)]; //1..9
+            }
+            if(num.substring(1,2)==1){
+
+                str+=intStr.arrayOfString3[num.substring(2,3)]; //11..20
+            }
+            if(num.substring(1,2)>1){
+
+                str+=intStr.arrayOfString4[num.substring(1,2)]; //20..90
+                str+=intStr.arrayOfString2[num.substring(2,3)]; //1..9
+            }
+
+            switch (num.substring(2,3)) {
+                case '1':
+                    if(num.substring(1,2)==1){
+                        str+=intStr.arrayOfString10[2];
+                    }else{
+                        str+=intStr.arrayOfString10[0];
+                    }
+                    break;
+                case '2':
+                    if(num.substring(1,2)==1){
+                        str+=intStr.arrayOfString10[2];
+                    }else{
+                        str+=intStr.arrayOfString10[1];
+                    }
+                    break;
+                case '3':
+                    if(num.substring(1,2)==1){
+                        str+=intStr.arrayOfString10[2];
+                    }else{
+                        str+=intStr.arrayOfString10[1];
+                    }
+                    break;
+                case '4':
+                    if(num.substring(1,2)==1){
+                        str+=intStr.arrayOfString10[2];
+                    }else{
+                        str+=intStr.arrayOfString10[1];
+                    }
+                    break;
+                default:
+                    str+=intStr.arrayOfString10[2];
+                    break;
+            }
+
+        }
+        if(num.length==2){
+            if(num.substring(0,1)==0){
+
+                str+=intStr.arrayOfString2[num.substring(1,2)]; //1..9
+            }
+            if(num.substring(0,1)==1){
+
+                str+=intStr.arrayOfString3[num.substring(1,2)]; //11..20
+            }
+            if(num.substring(0,1)>1){
+
+                str+=intStr.arrayOfString4[num.substring(0,1)]; //20..90
+                str+=intStr.arrayOfString2[num.substring(1,2)]; //1..9
+            }
+
+            str+=intStr.arrayOfString10[2];
+
+        }
+        if(num.length==1){
+            str+=intStr.arrayOfString2[num]; //1..9
+            switch (num) {
+                case '1':
+                    str+=intStr.arrayOfString10[0];
+                    break;
+                case '2':
+                    str+=intStr.arrayOfString10[1];
+                    break;
+                case '3':
+                    str+=intStr.arrayOfString10[1];
+                    break;
+                case '4':
+                    str+=intStr.arrayOfString10[1];
+                    break;
+                default:
+                    str+=intStr.arrayOfString10[2];
+                    break;
+            }
+
+        }
+
+    }
+    return str;
+};
+/**
  * Thousand converter to words
  *
  * @param local {string} - locale [ua,ru,....]
@@ -1261,6 +1471,16 @@ numberToWords.setLocal("ru", {
   "миллион ",
   "миллиона ",
   "миллионов "
+ ],
+ "arrayOfString9": [
+  "миллиард ",
+  "миллиарда ",
+  "миллиардов "
+ ],
+ "arrayOfString10": [
+  "триллион ",
+  "триллиона ",
+  "триллионов "
  ],
  "arrayOfString8": [
   "ноль ",
@@ -1788,6 +2008,16 @@ numberToWords.setLocal("ua", {
   "мільйон ",
   "мільйона ",
   "мільйонів "
+ ],
+ "arrayOfString9": [
+  "мільярд ",
+  "мільярди ",
+  "мільярдів "
+ ],
+ "arrayOfString10": [
+  "трильйон ",
+  "трильйони ",
+  "трильйонів "
  ],
  "arrayOfString8": [
   "ноль ",
